@@ -1,52 +1,66 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Hello, World!</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-      <h1 class="title">Hello World!</h1>
-      <p id="currentTime"></p>
-      <script src="script.js"></script>
-  </body>
-</html><style>
-  body {
-    background: black;
-    color: white;
-    font-family: Arial;
-  }
 
-  button {
-    padding: 10px;
-    background: lime;
-  }
-</style>
-<script>
-  function clickMe() {
-    alert("https://scratch.mit.edu/users/Playgamecreator/");
-  }
-</script>
 
-<button onclick="clickMe()">Нажми</button>
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
   <title>Мои проекты Scratch</title>
+  <style>
+    body {
+      background: black;
+      color: white;
+      font-family: Arial, sans-serif;
+      padding: 25px;
+    }
+    .title {
+      color: #5C6AC4;
+    }
+    button {
+      padding: 10px;
+      background: lime;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 10px;
+    }
+  </style>
 </head>
 <body>
-  <h1>Мои проекты Scratch</h1>
+  <h1 class="title">Scratch Games!</h1>
+  <p id="currentTime"></p>
+
+  <h2>Счётчик кликов: <span id="clickCount">0</span></h2>
+  <button id="clickButton">Нажми меня!</button>
+
   <ul>
     <li>
-      <a href="https://scratch.mit.edu/projects/1266117577/" target="_blank">
+      <a href="https://scratch.mit.edu/projects/1266117577/" target="_blank" style="color: lime;">
         dodje from a ball
       </a>
     </li>
   </ul>
+
+  <script>
+    function showTime() {
+      document.getElementById('currentTime').textContent = new Date().toUTCString();
+    }
+    showTime();
+    setInterval(showTime, 1000);
+
+    window.onload = () => {
+      let count = 0;
+      const clickCountElem = document.getElementById('clickCount');
+      const clickButton = document.getElementById('clickButton');
+
+      clickButton.addEventListener('click', () => {
+        count++;
+        clickCountElem.textContent = count;
+      });
+    }
+  </script>
 </body>
 </html>
-
-
 
 
 
